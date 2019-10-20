@@ -1,0 +1,15 @@
+version: "3.1"
+
+services:
+  proxy:
+    image: nginx
+    volumes:
+       - ./nginx-conf:/etc/nginx/conf.d
+    ports:
+      - "8080:80"
+  nodejs-app:
+    # image: node:12-alpine
+    build:
+      context: ./node-app
+    ports:
+      - "3001:3000"
